@@ -41,13 +41,12 @@ dittongo(ue).
 dittongo(ui).
 dittongo(uo).
 
-trittongo(aiu).
 trittongo(iai).
 trittongo(iei).
 trittongo(ioi).
 trittongo(uai).
 trittongo(uia).
-trittongo(uie)
+trittongo(uie).
 trittongo(uio).
 trittongo(uoi).
 
