@@ -174,13 +174,17 @@ sillabazione([V,V1,V2,V3|P], [[V], [V1, V2, V3]|S]) :-
 sillabazione([C,V1,V2|P], [[C, V1, V2]|S]) :-
     consonante(C), atom_chars(V1V2, [V1,V2]), dittongo(V1V2), !,
     sillabazione(P, S).
+sillabazione([V,V1,V2|P], [[V],[V1, V2]|S]) :-
+    vocale(V), atom_chars(V1V2, [V1,V2]), dittongo(V1V2), !,
+    sillabazione(P, S).
 sillabazione([C,V1,V2|P], [[C, V1]|S]) :-
     consonante(C), atom_chars(V1V2, [V1,V2]), iato(V1V2), !,
     sillabazione([V2|P], S).
 chars_atom(C,A) :- atom_chars(A,C).
 
-sillabazione_stringa(Parola, Sillabe):-
-	atom_string(A,Parola),
+sillabazione_parola(Parola, Sillabe):-
+	string_lower(Parola, ParolaMinuscola),
+	atom_string(A,ParolaMinuscola),
 	atom_chars(A, L),
 	macro_sillabe(L, MacroSillabe),
 	maplist(sillabazione, MacroSillabe, L2),

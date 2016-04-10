@@ -44,10 +44,9 @@ dittongo(uo).
 trittongo(iai).
 trittongo(iei).
 trittongo(ioi).
+trittongo(iuo).
 trittongo(uai).
-trittongo(uia).
-trittongo(uie).
-trittongo(uio).
+trittongo(uei).
 trittongo(uoi).
 
 /* quando nessuna delle due vocali è i o u */
