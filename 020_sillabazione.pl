@@ -184,16 +184,19 @@ sillabazione([C,V1,V2|P], [[C, V1]|S]) :-
 chars_atom(C,A) :- atom_chars(A,C).
 
 sillabazione_parola(Parola, Sillabe):-
+
+
+	/* converto in minuscolo */
 	string_lower(Parola, ParolaMinuscola),
 	atom_string(A,ParolaMinuscola),
+	
 	/* considero solo i primi 20 caratteri */
-	   /*
-	length(A,Length),
+	string_length(Parola,Length),
 	min_list([Length,20], Min),
+	string_length(A,Length),
 	sub_atom(A,0,Min,_,Arestricted),
 	atom_chars(Arestricted, L),
-	   */
-	atom_chars(A, L),
+	
 	macro_sillabe(L, MacroSillabe),
 	maplist(sillabazione, MacroSillabe, L2),
 	append(L2,L3),
