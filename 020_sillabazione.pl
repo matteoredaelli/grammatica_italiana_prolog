@@ -143,8 +143,9 @@ sillabazione([s, c, V|P], [[s,c,V]|S]):-
 
 sillabazione([r,i,e|P], [[r,i]|S]):-  !,
 	sillabazione([e|P], S).
-sillabazione([s,t,r,V|P], [[s,t,r,V]|S]):- 
-    vocale(V), !,
+sillabazione([s,C,r,V|P], [[s,C,r,V]|S]):- 
+	consonante(C),
+	vocale(V), !,
     sillabazione(P, S).
 sillabazione([t,r,i|P], [[t,r,i]|S]):-  !,
 	sillabazione(P, S).
