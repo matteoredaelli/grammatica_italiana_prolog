@@ -27,7 +27,8 @@ http_get_sillabazione(Request) :-
             [
              parola(NameString,   [])
             ]),
-    read_term_from_atom(NameString, Name, []),
+    string_lower(NameString, NameStringLowercase),
+    read_term_from_atom(NameStringLowercase, Name, []),
     sillabazione_parola(Name, Sillabe),
     prolog_to_json(json([word=Sillabe]), Json),
     reply_json(Json).
