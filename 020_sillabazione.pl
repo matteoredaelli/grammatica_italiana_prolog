@@ -132,6 +132,8 @@ sillabazione([s,C,r,V|P], [[s,C,r,V]|S]):-
 sillabazione([t,r,i|P], [[t,r,i]|S]):-  !,
 	sillabazione(P, S).
 
+/* le parole hanno almeno 2 vocali,
+   in questo caso non vicine e ci sono almeno 2 sillabe */
 sillabazione([C, V, C2|P], [[C,V]|S]):- 
     vocale(V), consonante(C), consonante(C2), !,
     sillabazione([C2|P], S).
@@ -162,8 +164,6 @@ sillabazione([C,V1,V2|P], [[C, V1]|S]) :-
 chars_atom(C,A) :- atom_chars(A,C).
 
 sillabazione_parola(Parola, Sillabe):-
-
-
 	/* converto in minuscolo */
 	string_lower(Parola, ParolaMinuscola),
 	atom_string(A,ParolaMinuscola),
