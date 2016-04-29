@@ -69,24 +69,6 @@ sillabazione(P,[P]):-
 sillabazione([a,n,t,i|P], [[a,n],[t,i]|S]):-  !,
 	sillabazione(P, S).
 
-/* una vocale iniziale seguita da consonante doppia 
-sillabazione([V, C, C|P], [[V,C]|S]):- 
-    vocale(V), consonante(C), !,
-    sillabazione([C|P], S).
-*/
-/* si divide anche il gruppo cq: ac-qua 
-sillabazione([V, c, q|P], [[V,c]|S]):- 
-    vocale(V), !,
-    sillabazione([q|P], S).
-*/
-/* l, r, m, n vanno separate dalla consonante che le segue 
-sillabazione([V, C1, C2|P], [[V,C1]|S]):- 
-	vocale(V), consonante(C1), consonante(C2),
-	(C1 == l; C1 == m; C1 == n; C1 == r),
-	C1 \= C2, !,
-    sillabazione([C2|P], S).
-*/
-
 /* una vocale iniziale seguita da consonante semplice */
 sillabazione([V, C, L|P], [[V]|S]):- 
     vocale(V), consonante(C), C \= L, !,
@@ -149,14 +131,10 @@ sillabazione([s,C,r,V|P], [[s,C,r,V]|S]):-
     sillabazione(P, S).
 sillabazione([t,r,i|P], [[t,r,i]|S]):-  !,
 	sillabazione(P, S).
-sillabazione([C, V, C2], [[C,V,C2]]):- 
-    vocale(V), consonante(C), consonante(C2), !.
-sillabazione([C, V, C2, C2|P], [[C,V,C2]|S]):- 
+
+sillabazione([C, V, C2|P], [[C,V]|S]):- 
     vocale(V), consonante(C), consonante(C2), !,
     sillabazione([C2|P], S).
-sillabazione([C, V, C2, C3|P], [[C,V,C2]|S]):- 
-    vocale(V), consonante(C), consonante(C2), consonante(C3), C2 \= C3, !,
-    sillabazione([C3|P], S).
 sillabazione([C,V,C2,V2|P], [[C,V]|S]) :-
   vocale(V), vocale(V2),
     consonante(C), consonante(C2), !,
