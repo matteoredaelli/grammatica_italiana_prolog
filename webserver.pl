@@ -1,3 +1,18 @@
+/*
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 :- use_module(library(http/thread_httpd)).
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/html_write)).
@@ -11,16 +26,22 @@
 :- use_module(library(http/http_unix_daemon)).
 :- initialization http_daemon.
 
-:- http_handler(root(hello_world), say_hi, []).
+:- http_handler('/parola', http_get_parola, []).
 :- http_handler('/sillabazione', http_get_sillabazione, []).
 
-/*
-server(Port) :-
-    %% load edges from a csv file
-    http_server(http_dispatch, [port(Port)]).
-*/
 :- consult('go').
 :- main.
+
+http_get_parola(Request) :-
+    http_parameters(Request,
+            [
+             parola(NameString,   [])
+            ]),
+    string_lower(NameString, NameStringLowercase),
+    read_term_from_atom(NameStringLowercase, Name, []),
+    parola(Name, Result),
+    prolog_to_json(json([parola=Name,tipo=Result]), Json),
+    reply_json(Json).
 
 http_get_sillabazione(Request) :-
     http_parameters(Request,
