@@ -26,11 +26,23 @@
 :- use_module(library(http/http_unix_daemon)).
 :- initialization http_daemon.
 
+:- http_handler('/anagramma', http_get_anagramma, []).
 :- http_handler('/parola', http_get_parola, []).
 :- http_handler('/sillabazione', http_get_sillabazione, []).
 
 :- consult('go').
 :- main.
+
+http_get_anagramma(Request) :-
+    http_parameters(Request,
+            [
+             parola(NameString,   [])
+            ]),
+    string_lower(NameString, NameStringLowercase),
+    read_term_from_atom(NameStringLowercase, Name, []),
+    anagramma(Name, Result),
+    prolog_to_json(json([parola=Name,anagrammi=Result]), Json),
+    reply_json(Json).
 
 http_get_parola(Request) :-
     http_parameters(Request,

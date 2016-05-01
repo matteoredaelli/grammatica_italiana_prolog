@@ -1,5 +1,3 @@
-#!/usr/bin/swipl -q -s -t main
-
 /*
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,14 +13,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-main:- 
-	load_files('000_utils'),
-	load_files('010_lettere'),
-	load_files('010_articoli'),
-	load_files('010_congiunzioni'),
-	load_files('010_preposizioni'),
-	load_files('020_sillabazione'),
-	load_files('020_verbi_essere'),
-	load_files('100_parole'),
-	load_files('110_plurali'),
-	load_files('200_anagramma').
+anagramma(Parola, Parole):-
+	atom_string(Parola,ParolaAtom),
+	atom_chars(ParolaAtom, ListaLettere),
+	findall(P, permutation(ListaLettere,P),L),
+	maplist(atomic_list_concat, L,L2),
+	maplist(atom_string, L2,Parole).
