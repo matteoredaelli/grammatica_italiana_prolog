@@ -13993,3 +13993,36 @@ parola('zuppiera','sf').
 parola('zigomo','sm').
 parola('zuppo','ag').
 parola('zigrinatura','sf').
+tipo_parola('a','aggettivo').
+tipo_parola('af','aggettivo femminile').
+tipo_parola('ag','aggettivo').
+tipo_parola('am','aggettivo maschile').
+tipo_parola('attr','').
+tipo_parola('av','avverbio').
+tipo_parola('cong','congiunzione').
+tipo_parola('det','determinativo').
+tipo_parola('escl','escl').
+tipo_parola('int','int').
+tipo_parola('naut','').
+tipo_parola('np','nome proprio').
+tipo_parola('num','numero').
+tipo_parola('pp','pp').
+tipo_parola('pr','prenome').
+tipo_parola('pref','prefisso').
+tipo_parola('prep','preposizione').
+tipo_parola('prmpl','prmpl').
+tipo_parola('pron','pronome').
+tipo_parola('prpf','prpf').
+tipo_parola('s','sostantivo').
+tipo_parola('sf','sostantivo').
+tipo_parola('sfp','sostantivo').
+tipo_parola('sfpl','sostantivo').
+tipo_parola('sm','sostantivo maschile').
+tipo_parola('smp','sostantivo maschile plurale').
+tipo_parola('smpl','sostantivo maschile plurale').
+tipo_parola('st','st').
+tipo_parola('sv','sv').
+tipo_parola('v','verbo').
+tipo_parola('vi','verbo intransitivo').
+tipo_parola('vr','verbo').
+tipo_parola('vt','verbo transitivo').

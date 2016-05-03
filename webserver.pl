@@ -51,7 +51,8 @@ http_get_parola(Request) :-
             ]),
     string_lower(NameString, NameStringLowercase),
     read_term_from_atom(NameStringLowercase, Name, []),
-    parola(Name, Result),
+    parola(Name, Result0),
+    tipo_parola(Result0, Result),
     prolog_to_json(json([parola=Name,tipo=Result]), Json),
     reply_json(Json).
 
