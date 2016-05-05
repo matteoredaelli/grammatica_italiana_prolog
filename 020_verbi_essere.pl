@@ -13,5 +13,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-indicativo_presente('essere', ['sono', 'sei', 'è', 'siamo', 'siete', 'sono']).
-indicativo_passato_prossimo('essere', ['sono stato', 'sei', 'è', 'siamo', 'siete', 'sono']).
+coniugazione_verbo('essere', 'indicativo',  'presente',       ['sono', 'sei', 'è', 'siamo', 'siete', 'sono']).
+coniugazione_verbo('essere', 'indicativo',  'imperfetto',     ['ero', 'eri', 'era', 'eravamo', 'eravate', 'erano']).
+coniugazione_verbo('essere', 'indicativo',  'passato remoto', ['fui', 'fosti', 'fu', 'fummo', 'foste', 'furono']).
+coniugazione_verbo('essere', 'indicativo',  'futuro semplice',['sarò', 'sarai', 'sarà', 'saremo', 'foste', 'furono']).
+coniugazione_verbo('essere', 'congiuntivo', 'presente',       ['sia', 'sia', 'sia', 'siamo', 'siate', 'siano']).
+coniugazione_verbo('essere', 'congiuntivo', 'imperfetto',     ['fossi', 'fossi', 'fosse', 'fossimo', 'foste', 'fossero']).
+coniugazione_verbo('essere', 'imperativo',  'presente',       ['sii', 'sia', 'siamo', 'siate', 'siano']).
+coniugazione_verbo('essere', 'gerundio',    'presente',       ['essendo']).
+coniugazione_verbo('essere', 'participio',  'presente',       ['ente']).
+coniugazione_verbo('essere', 'participio',  'passato',        ['stato']).
+
+	

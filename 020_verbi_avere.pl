@@ -13,9 +13,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-coniugazione_verbo('indicativo', 'presente', 'avere', ['ho', 'hai', 'ha', 'abbiamo', 'avete', 'anno']).
-coniugazione_verbo('indicativo', 'passato remoto', 'avere', ['ebbi', 'avesti', 'ebbe', 'avemmo', 'aveste', 'ebbero']).
-coniugazione_verbo('indicativo', 'futuro semplice', 'avere', ['avrò', 'avrai', 'avrà', 'avremo', 'avrete', 'avranno']).
-coniugazione_verbo('congiuntivo', 'presente', 'avere', ['abbia', 'abbia', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
-coniugazione_verbo('imperativo', 'presente', 'avere', ['--', 'abbi', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
-
+coniugazione_verbo('avere', 'indicativo', 'presente',       ['ho', 'hai', 'ha', 'abbiamo', 'avete', 'anno']).
+coniugazione_verbo('avere', 'indicativo', 'passato remoto', ['ebbi', 'avesti', 'ebbe', 'avemmo', 'aveste', 'ebbero']).
+coniugazione_verbo('avere', 'indicativo', 'futuro semplice',['avrò', 'avrai', 'avrà', 'avremo', 'avrete', 'avranno']).
+coniugazione_verbo('avere', 'congiuntivo','presente',       ['abbia', 'abbia', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
+coniugazione_verbo('avere', 'gerundio',   'presente',       ['avendo']).
+coniugazione_verbo('avere', 'imperativo', 'presente',       ['--', 'abbi', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
+coniugazione_verbo('avere', 'participio', 'presente',       ['avente']).
+coniugazione_verbo('avere', 'participio', 'passato',        ['avuto']).
