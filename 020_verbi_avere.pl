@@ -13,11 +13,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-coniugazione_verbo('avere', 'indicativo', 'presente',       ['ho', 'hai', 'ha', 'abbiamo', 'avete', 'anno']).
-coniugazione_verbo('avere', 'indicativo', 'passato remoto', ['ebbi', 'avesti', 'ebbe', 'avemmo', 'aveste', 'ebbero']).
-coniugazione_verbo('avere', 'indicativo', 'futuro semplice',['avrò', 'avrai', 'avrà', 'avremo', 'avrete', 'avranno']).
-coniugazione_verbo('avere', 'congiuntivo','presente',       ['abbia', 'abbia', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
-coniugazione_verbo('avere', 'gerundio',   'presente',       ['avendo']).
-coniugazione_verbo('avere', 'imperativo', 'presente',       ['--', 'abbi', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
-coniugazione_verbo('avere', 'participio', 'presente',       ['avente']).
-coniugazione_verbo('avere', 'participio', 'passato',        ['avuto']).
+coniugazione_verbo_irregolare('avere', 'indicativo', 'presente',       ['ho', 'hai', 'ha', 'abbiamo', 'avete', 'anno']).
+coniugazione_verbo_irregolare('avere', 'indicativo', 'passato remoto', ['ebbi', 'avesti', 'ebbe', 'avemmo', 'aveste', 'ebbero']).
+coniugazione_verbo_irregolare('avere', 'indicativo', 'futuro semplice',['avrò', 'avrai', 'avrà', 'avremo', 'avrete', 'avranno']).
+coniugazione_verbo_irregolare('avere', 'congiuntivo','presente',       ['abbia', 'abbia', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
+coniugazione_verbo_irregolare('avere', 'gerundio',   'presente',       ['avendo']).
+coniugazione_verbo_irregolare('avere', 'imperativo', 'presente',       ['--', 'abbi', 'abbia', 'abbiamo', 'abbiate', 'abbiamo']).
+coniugazione_verbo_irregolare('avere', 'participio', 'presente',       ['avente']).
+coniugazione_verbo_irregolare('avere', 'participio', 'passato',        ['avuto']).

@@ -13,15 +13,15 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-coniugazione_verbo('essere', 'indicativo',  'presente',       ['sono', 'sei', 'è', 'siamo', 'siete', 'sono']).
-coniugazione_verbo('essere', 'indicativo',  'imperfetto',     ['ero', 'eri', 'era', 'eravamo', 'eravate', 'erano']).
-coniugazione_verbo('essere', 'indicativo',  'passato remoto', ['fui', 'fosti', 'fu', 'fummo', 'foste', 'furono']).
-coniugazione_verbo('essere', 'indicativo',  'futuro semplice',['sarò', 'sarai', 'sarà', 'saremo', 'foste', 'furono']).
-coniugazione_verbo('essere', 'congiuntivo', 'presente',       ['sia', 'sia', 'sia', 'siamo', 'siate', 'siano']).
-coniugazione_verbo('essere', 'congiuntivo', 'imperfetto',     ['fossi', 'fossi', 'fosse', 'fossimo', 'foste', 'fossero']).
-coniugazione_verbo('essere', 'imperativo',  'presente',       ['sii', 'sia', 'siamo', 'siate', 'siano']).
-coniugazione_verbo('essere', 'gerundio',    'presente',       ['essendo']).
-coniugazione_verbo('essere', 'participio',  'presente',       ['ente']).
-coniugazione_verbo('essere', 'participio',  'passato',        ['stato']).
+coniugazione_verbo_irregolare('essere', 'indicativo',  'presente',       ['sono', 'sei', 'è', 'siamo', 'siete', 'sono']).
+coniugazione_verbo_irregolare('essere', 'indicativo',  'imperfetto',     ['ero', 'eri', 'era', 'eravamo', 'eravate', 'erano']).
+coniugazione_verbo_irregolare('essere', 'indicativo',  'passato remoto', ['fui', 'fosti', 'fu', 'fummo', 'foste', 'furono']).
+coniugazione_verbo_irregolare('essere', 'indicativo',  'futuro semplice',['sarò', 'sarai', 'sarà', 'saremo', 'foste', 'furono']).
+coniugazione_verbo_irregolare('essere', 'congiuntivo', 'presente',       ['sia', 'sia', 'sia', 'siamo', 'siate', 'siano']).
+coniugazione_verbo_irregolare('essere', 'congiuntivo', 'imperfetto',     ['fossi', 'fossi', 'fosse', 'fossimo', 'foste', 'fossero']).
+coniugazione_verbo_irregolare('essere', 'imperativo',  'presente',       ['sii', 'sia', 'siamo', 'siate', 'siano']).
+coniugazione_verbo_irregolare('essere', 'gerundio',    'presente',       ['essendo']).
+coniugazione_verbo_irregolare('essere', 'participio',  'presente',       ['ente']).
+coniugazione_verbo_irregolare('essere', 'participio',  'passato',        ['stato']).
 
 	
