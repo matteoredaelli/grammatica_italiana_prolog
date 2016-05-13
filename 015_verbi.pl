@@ -30,7 +30,7 @@ coniugazione_soggetti(['io','tu','egli','noi','voi','essi']).
     ************************************************ */
 modi_verbali(['indicativo', 'congiuntivo', 'condizionale', 'imperativo', 'infinito', 'participio', 'gerundio']).
 
-tempi_verbali_semplici('indicativo',   ['presente', 'passato remoto', 'futuro semplice']).
+tempi_verbali_semplici('indicativo',   ['presente', 'imperfetto', 'passato remoto', 'futuro semplice']).
 tempi_verbali_semplici('congiuntivo',  ['presente', 'imperfetto']).
 tempi_verbali_semplici('condizionale', ['presente']).
 tempi_verbali_semplici('gerundio',     ['presente']).
@@ -52,7 +52,7 @@ tempi_verbali_composti('participio',   ['passato']).
     verbi regolari in ARE: prima coniugazione
     ************************************************ */
 
-postfissi_verbo("are", 'indicativo',  'presente',        ["o", "i", "a", "iamo", "iate", "anno"]).
+postfissi_verbo("are", 'indicativo',  'presente',        ["o", "i", "a", "iamo", "ate", "ano"]).
 postfissi_verbo("are", 'indicativo',  'imperfetto',      ["avo", "avi", "ava", "avamo", "avate", "avano"]).
 postfissi_verbo("are", 'indicativo',  'passato remoto',  ["iai", "asti", "ò", "ammo", "aste", "arono"]).	      
 postfissi_verbo("are", 'indicativo',  'futuro semplice', ["erò", "erai", "erà", "eremo", "erete", "eranno"]).
@@ -96,52 +96,55 @@ postfissi_verbo("ire", 'imperativo',  'presente',        ["--", "i", "a", "iamo"
 postfissi_verbo("ire", 'participio',  'presente',        ["ente"]).
 postfissi_verbo("ire", 'participio',  'passato',         ["ito"]).
 
+verbo_modo_tempo_composto_ausiliare_tempo('indicativo', 'passato prossimo', 'presente').
+verbo_modo_tempo_composto_ausiliare_tempo('indicativo', 'trapassato prossimo', 'imperfetto').
+verbo_modo_tempo_composto_ausiliare_tempo('indicativo', 'trapassato remoto', 'passato remoto').
+verbo_modo_tempo_composto_ausiliare_tempo('indicativo', 'futuro anteriore', 'futuro').
+verbo_modo_tempo_composto_ausiliare_tempo(_, 'passato', 'presente').
+verbo_modo_tempo_composto_ausiliare_tempo('congiuntivo', 'trapassato', 'imperfetto').
+
+
 /*  ************************************************
     coniugazione verbi
     ************************************************ */
 
 coniugazione_verbo_regolare_tempo_semplice(Verbo, Modo, Tempo, L):-
-	tipo_coniugazione(Verbo, Coniugazione),
+	tipo_coniugazione_verbo(Verbo, Coniugazione),
 	tempi_verbali_semplici(Modo, Tempi),
+	member(Tempo, Tempi),
 	radice_verbo(Verbo, Radice),
 	postfissi_verbo(Coniugazione, Modo, Tempo, L1),
-	coniugazione_soggetti(Soggetti),
-	merge_lists(Soggetti, L1, L).
+	add_prefix_to_list(Radice, L1, L).
 
 coniugazione_verbo_regolare_tempo_composto_per_coniugazione(Coniugazione, Radice, Ausiliare, Modo, Tempo, L):-
-	coniugazione_verbo_irregolare(Ausiliare, 'participio', 'passato', [PP]),
-	postfissi_verbo(Coniugazione, Modo, Tempo, L1),
-	coniugazione_soggetti(Soggetti),
-	merge_lists(Soggetti, L1, L).
+	postfissi_verbo(Coniugazione, 'participio', 'passato', [PP]),
+	atom_concat(Radice, PP, FullPP),
+	verbo_modo_tempo_composto_ausiliare_tempo(Modo, Tempo, TempoAusiliare),
+	coniugazione_verbo_irregolare(Ausiliare, Modo, TempoAusiliare, L1),
+	add_postfix_to_list(FullPP, L1, L).
 
 coniugazione_verbo_regolare_tempo_composto(Verbo, Modo, Tempo, Ausiliare, L):-
-	tipo_coniugazione(Verbo, Coniugazione),
-	coniugazione_verbo_irregolare(Ausiliare, 'participio', 'passato', [PP]),
-	postfissi_verbo(Coniugazione, Modo, Tempo, L1),
-	coniugazione_soggetti(Soggetti),
-	merge_lists(Soggetti, L1, L).
+	tipo_coniugazione_verbo(Verbo, Coniugazione),
+	radice_verbo(Verbo, Radice),
+	tempi_verbali_composti(Modo, Tempi),
+	member(Tempo, Tempi),
+	coniugazione_verbo_regolare_tempo_composto_per_coniugazione(Coniugazione, Radice, Ausiliare, Modo, Tempo, L).
+
+coniugazione_verbo_regolare(Verbo, Modo, Tempo, _Ausiliare, L):-
+	coniugazione_verbo_regolare_tempo_semplice(Verbo, Modo, Tempo, L), !.
+coniugazione_verbo_regolare(Verbo, Modo, Tempo, Ausiliare, L):-
+	coniugazione_verbo_regolare_tempo_composto(Verbo, Modo, Tempo, Ausiliare, L).
 
 coniugazione_verbo(Verbo, _Ausiliare, Modo, Tempo, L):-
-	coniugazione_verbo_irregolare(Verbo, Modo, Tempo, L), !, .
+	coniugazione_verbo_irregolare(Verbo, Modo, Tempo, L), ! .
+
+coniugazione_verbo(Verbo, _Ausiliare, Modo, Tempo, L):-
+	coniugazione_verbo_regolare_tempo_semplice(Verbo, Modo, Tempo, L), !.
 
 coniugazione_verbo(Verbo, Ausiliare, Modo, Tempo, L):-
-	tipo_coniugazione(Verbo, Coniugazione),
-	tempi_verbali_semplici(Modo, Tempi),
-	member(Tempo, Tempi), !,
-	radice_verbo(Verbo, Radice),
-	postfissi_verbo(Coniugazione, Modo, Tempo, L1),
-	coniugazione_soggetti(Soggetti),
+	coniugazione_verbo_regolare_tempo_composto(Verbo, Modo, Tempo, Ausiliare, L).
+/*	 coniugazione_soggetti(Soggetti),
 	merge_lists(Soggetti, L1, L).
+*/	
 
 
-coniugazione_verbo(Verbo, Ausiliare, Modo, Tempo, L):-
-	tipo_coniugazione(Verbo, Coniugazione),
-	tempi_verbali_semplici(Modo, Tempi),
-	member(Tempo, Tempi), !,
-	radice_verbo(Verbo, Radice),
-	postfissi_verbo(Coniugazione, Modo, Tempo, L1),
-	coniugazione_soggetti(Soggetti),
-	merge_lists(Soggetti, L1, L).
-	
-	
-	

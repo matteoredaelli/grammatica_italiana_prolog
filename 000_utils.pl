@@ -33,12 +33,12 @@ merge_lists([E1|L1], [E2|L2], Sep, [E|L]):-
 add_prefix_to_list(String, L1, L2):-
 	length(L1, N),
 	build_list(String, N, List),
-	merge_lists(List, L1, L2).
+	merge_lists(List, L1, '', L2).
 
 add_postfix_to_list(String, L1, L2):-
 	length(L1, N),
 	build_list(String, N, List),
-	merge_lists(L1, List, L2).
+	merge_lists(L1, List, '', L2).
 
 /*
   ?- build_list("casa",3,L).
