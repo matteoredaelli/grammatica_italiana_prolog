@@ -22,9 +22,8 @@ main:-
 	load_files('010_congiunzioni'),
 	load_files('010_preposizioni'),
 	load_files('020_sillabazione'),
-	load_files('015_verbi'),
-	load_files('020_verbi_avere'),
-	load_files('020_verbi_essere'),
+	load_files('020_verbi_irregolari'),
+	load_files('030_verbi'),
 	load_files('100_parole'),
 	load_files('110_plurali'),
 	load_files('200_anagramma').
